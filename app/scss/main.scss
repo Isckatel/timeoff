@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.workform {
+  width: 720px;
+  margin: 20px auto;
+  label {margin-right: 10px}
+  .marginbot5 {margin-bottom: 5px}
+  .margintop10 {margin: 10px 0 5px}
+}
+
+.info {
+  width: 720px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+#button {
+  padding: 10px 15px;
+  border: silver solid 1px;
+  &:hover {cursor: pointer;}
+}
+
+#timerbox {
+  margin: 10px auto;
+  width: 720px;
+  padding: 20px 0;
+  border: black solid 1px;
+}

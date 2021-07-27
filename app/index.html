@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title></title>
+  </head>
+  <body>
+  <form class="workform">
+    <p class="marginbot5">Интервал работы:</p>
+    <input type="radio" name="timework" value="1" id="timework45">
+    <label for="timework45">45 минут</label>
+    <input type="radio" name="timework" value="50" id="timework50">
+    <label for="timework50">50 минут</label>
+    <input type="radio" name="timework" value="60" id="timework60" checked>
+    <label for="timework60">60 минут</label>
+    <p class="margintop10">Интервал отдыха:</p>
+    <input type="radio" name="timebreak" value="10" id="timebreak10">
+    <label for="timebreak10">10 минут</label>
+    <input type="radio" name="timebreak" value="15" id="timebreak15" checked>
+    <label for="timebreak15">15 минут</label>
+  </form>
+  <div class="info">
+    <button id="button">Запуск</button>
+  </div>
+  <div id="timerbox">
+    <div id="timer"></div>
+  </div>
+  <div class="info">
+    <h3>Приложение 7 к САНПИН 2.2.2/2.4.1340-03.<br> Предложения по организации работы с ПЭВМ</h3><br>
+    <p>1.4. В случаях, когда характер работы требует постоянного взаимодействия с ВДТ (набор текстов или ввод данных и т.п.) с напряжением внимания и сосредоточенности, при исключении возможности периодического переключения на другие виды трудовой деятельности, не связанные с ПЭВМ, рекомендуется организация перерывов на 10 - 15 мин через каждые 45 - 60 мин работы.</p>
+  </div>
+  <audio preload="auto">
+    <source src="mp3/dzin.mp3" type="audio/mpeg">
+    Тег audio не поддерживается вашим браузером.
+  </audio>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  </body>
+</html>
