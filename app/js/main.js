@@ -4,6 +4,7 @@ let timeBreak = 0;
 let run = false;
 let audio = document.getElementsByTagName("audio")[0];
 var myWorker = new Worker("js/worker.js");
+let numTimer = 1;//номер таймера 1-работа 2-отдых
 
 $("button").on("click",function(){
   timeSeconds = parseInt($('input[name=timework]:checked').val()) * 60;
@@ -11,14 +12,13 @@ $("button").on("click",function(){
 
   //поддерживаются ли воркеры
   if (window.Worker) {
-    myWorker.postMessage([timeSeconds]);
+    myWorker.postMessage([10]);
+    numTimer = 1;
     console.log('Строкой выше запустили воркер');
   } else {
     alert('Вашем браузере не поддерживается работа Веб-воркеров. Работа приложения не возможна.');
   }
-
-  run = true;
-  console.log(timeBreak);
+  //run = true;
 })
 
 
@@ -28,6 +28,15 @@ myWorker.onmessage = function(e) {
   if (e.data == 'end') {
     $('#timer').html('0:00');
     audio.play();
+    if (numTimer == 1) {
+      console.log('Нужен новый воркер отдыха');
+      myWorker.postMessage([timeBreak]);
+      numTimer = 2;
+    } else if (numTimer==2) {
+      console.log('Нужен новый воркер работы');
+      myWorker.postMessage([timeSeconds]);
+      numTimer = 1;
+    }
   }
   else {
     $('#timer').html(e.data);
