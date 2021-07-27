@@ -11,7 +11,7 @@ gulp.task('copyJS', function(){
 
 gulp.task('copyHTML', function(){
   return gulp.src('app/**/*.html')
-  .pipe(gulp.dest('public/'))
+  .pipe(gulp.dest('C:/Users/Ivan/Downloads/openserver/openserver/domains/test/'))
 });
 
 gulp.task('sassToCSS', function(){
@@ -21,7 +21,7 @@ gulp.task('sassToCSS', function(){
     //outputStyle: 'compressed'
   }))
   .on('error',console.error.bind(console))
-  .pipe(gulp.dest('public/css/'))
+  .pipe(gulp.dest('C:/Users/Ivan/Downloads/openserver/openserver/domains/test/css/'))
 });
 
 gulp.task('default', function(){
@@ -31,12 +31,12 @@ gulp.task('default', function(){
 });
 
 gulp.task('autoPrefixCSS', function(){
-  return gulp.src('public/css/main.css')
+  return gulp.src('C:/Users/Ivan/Downloads/openserver/openserver/domains/test/css/main.css')
     .pipe(autoprefixer({
       overrideBrowserslist:['last 10 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest('public/css'));
+    .pipe(gulp.dest('C:/Users/Ivan/Downloads/openserver/openserver/domains/test/css'));
 });
 
 gulp.task('serve', function(){

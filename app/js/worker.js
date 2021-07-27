@@ -1,14 +1,23 @@
-var workerResult = 0;
+let minutes = 0; // Получаем минут
+let seconds = 0; // Получаем секунды
+let strTimer = '';
 onmessage = function(e) {
   console.log('Воркер за работой');
   let timeSeconds=e.data[0];
+
   function iterSec() { --timeSeconds; }
+
   let timer = setInterval(function(){
     iterSec();
     if (timeSeconds<=0) {
       console.log('Воркер отправит сообщение');
-      self.postMessage(1);
+      self.postMessage('end');
       clearInterval(timer);
+    } else {
+      minutes = timeSeconds/60; // Получаем минут
+      seconds = timeSeconds%60; // Получаем секунды
+      strTimer = Math.trunc(minutes)+ ":" + (seconds<10 ? "0"+seconds : seconds);
+      self.postMessage(strTimer);
     }
   },1000);
 

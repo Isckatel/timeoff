@@ -11,8 +11,10 @@ $("button").on("click",function(){
 
   //поддерживаются ли воркеры
   if (window.Worker) {
-    myWorker.postMessage([5]);
+    myWorker.postMessage([timeSeconds]);
     console.log('Строкой выше запустили воркер');
+  } else {
+    alert('Вашем браузере не поддерживается работа Веб-воркеров. Работа приложения не возможна.');
   }
 
   run = true;
@@ -22,7 +24,14 @@ $("button").on("click",function(){
 
 myWorker.onmessage = function(e) {
   //result.textContent = e.data;
-  console.log('Ответ от воркера' + e.data);
+  console.log('Ответ от воркера: ' + e.data);
+  if (e.data == 'end') {
+    $('#timer').html('0:00');
+    audio.play();
+  }
+  else {
+    $('#timer').html(e.data);
+  }
 }
 
 // let timer = setInterval(runTimer, 1000);
