@@ -1,8 +1,17 @@
+@font-face {
+	font-family: 'Digital-7';
+	src: url(../fonts/digital-7.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
+}
+
+body {
+  background: #f7f7f7;
 }
 
 .workform {
@@ -33,17 +42,35 @@
 
 #pause {
   margin-left: 10px;
+  width: 106px;
   display: none;
 }
 
 #continue {
  margin-left: 10px;
+ width: 106px;
+ display: none;
+}
+
+#reload {
+ margin-left: 10px;
  display: none;
 }
 
 #timerbox {
-  margin: 10px auto;
   width: 720px;
+  height: 58px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
   padding: 20px 0;
-  border: black solid 1px;
+  font-family: 'Digital-7', sans-serif;
+  font-size: 48px;
+  background: #dcdcdc;
+   box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+  #timer{
+    margin-left: 10px;
+    margin-top: 8px;
+  }
+  #type{margin-right: 10px;}
 }
