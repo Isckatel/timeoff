@@ -1,31 +1,47 @@
 console.log("Скрипты подключены");
 let timeSeconds = 0;
+let oldTimeSeconds = 0;
 let timeBreak = 0;
-let run = false;
 let audio = document.getElementsByTagName("audio")[0];
 var myWorker = new Worker("js/worker.js");
 let numTimer = 1;//номер таймера 1-работа 2-отдых
+let stop = false;
+let sentstop = false;
 
-$("button").on("click",function(){
+//Нажали кнопку Запуск
+$("#button").on("click",function(){
   timeSeconds = parseInt($('input[name=timework]:checked').val()) * 60;
   timeBreak = parseInt($('input[name=timebreak]:checked').val()) * 60;
-
   //поддерживаются ли воркеры
   if (window.Worker) {
-    myWorker.postMessage([10]);
+    myWorker.postMessage([timeSeconds]);
     numTimer = 1;
+    $("#pause").css("display","inline-block");
     console.log('Строкой выше запустили воркер');
   } else {
     alert('Вашем браузере не поддерживается работа Веб-воркеров. Работа приложения не возможна.');
   }
-  //run = true;
-})
+});
 
+//Нажата кнопка Паузы
+$("#pause").on("click",function(){
+  myWorker.postMessage(['stop']);
+  $("#pause").css("display","none");
+  $("#continue").css("display","inline-block");
+  stop = true;
+});
+
+//Нажата кнопка Продолжить
+$("#continue").on("click",function(){
+  if (oldTimeSeconds != 0) myWorker.postMessage([oldTimeSeconds]); else alert("Что-то пошло не так. Обновите страницу!");
+  $("#pause").css("display","inline-block");
+  $("#continue").css("display","none");
+  stop = false;
+});
 
 myWorker.onmessage = function(e) {
-  //result.textContent = e.data;
-  console.log('Ответ от воркера: ' + e.data);
-  if (e.data == 'end') {
+  console.log('Ответ от воркера: ' + e.data[0]);
+  if (e.data[0] == 'end') {
     $('#timer').html('0:00');
     audio.play();
     if (numTimer == 1) {
@@ -38,29 +54,15 @@ myWorker.onmessage = function(e) {
       numTimer = 1;
     }
   }
-  else {
-    $('#timer').html(e.data);
+  else if(e.data[0] == 'stopon') {
+
+  }
+  else if (!stop) {
+    $('#timer').html(e.data[0]);
+    oldTimeSeconds=e.data[1];
   }
 }
 
-// let timer = setInterval(runTimer, 1000);
-//
-// function runTimer() {
-//   let minutes = timeSeconds/60; // Получаем минут
-//   let seconds = timeSeconds%60; // Получаем секунды
-//   if (run) {
-//   // Условие если время закончилось то...
-//   if (timeSeconds <= 0) {
-//       // Таймер удаляется
-//       clearInterval(timer);
-//       // Выводит сообщение что время закончилось
-//       audio.play();
-//   } else { // Иначе
-//       // Создаём строку с выводом времени
-//       let strTimer = Math.trunc(minutes)+ ":" + (seconds<10 ? "0"+seconds : seconds);// + " Всего секунд:" + timeSeconds;
-//       // Выводим строку в блок для показа таймера
-//       $('#timer').html(strTimer);
-//   }
-//   --timeSeconds; // Уменьшаем таймер
-// }
-// }
+$("#delete").on("click",function(){
+  myWorker.terminate();
+});

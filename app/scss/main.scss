@@ -19,10 +19,26 @@
   margin-bottom: 10px;
 }
 
-#button {
+.butbox {
+  width: 720px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.buttons {
   padding: 10px 15px;
   border: silver solid 1px;
   &:hover {cursor: pointer;}
+}
+
+#pause {
+  margin-left: 10px;
+  display: none;
+}
+
+#continue {
+ margin-left: 10px;
+ display: none;
 }
 
 #timerbox {

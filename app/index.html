@@ -21,15 +21,20 @@
     <input type="radio" name="timebreak" value="15" id="timebreak15" checked>
     <label for="timebreak15">15 минут</label>
   </form>
-  <div class="info">
-    <button id="button">Запуск</button>
+  <div class="butbox">
+    <button id="button" class="buttons">Запуск</button>
+    <button id="pause" class="buttons">Пауза</button>
+    <button id="continue" class="buttons">Продолжить</button>
+    <button id="delete" class="buttons">Удалить воркер</button> 
   </div>
   <div id="timerbox">
-    <div id="timer"></div>
+    <div id="timer"> </div>
   </div>
   <div class="info">
-    <h3>Приложение 7 к САНПИН 2.2.2/2.4.1340-03.<br> Предложения по организации работы с ПЭВМ</h3><br>
+    <details>
+    <summary><i>Приложение 7 к САНПИН 2.2.2/2.4.1340-03. Предложения по организации работы с ПЭВМ</i></summary>
     <p>1.4. В случаях, когда характер работы требует постоянного взаимодействия с ВДТ (набор текстов или ввод данных и т.п.) с напряжением внимания и сосредоточенности, при исключении возможности периодического переключения на другие виды трудовой деятельности, не связанные с ПЭВМ, рекомендуется организация перерывов на 10 - 15 мин через каждые 45 - 60 мин работы.</p>
+    </details>
   </div>
   <audio preload="auto">
     <source src="mp3/dzin.mp3" type="audio/mpeg">
