@@ -22,12 +22,28 @@ body {
     width: 720px;
     margin: 0 auto;
     padding: 8px 0;
+    position: relative;
+    top:-10px;
 
     a {
       cursor: pointer;
-      &:not(:first-child){
-        margin-left: 20px;
+      margin-left: 20px;
+      //&:not(:first-child){
+      //   margin-left: 20px;
+      // }
+      .icon {
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        position: relative;
+        top:10px;
+        border:1px solid silver;
+        border-radius: 50%;
       }
+      .roz {background: #ffc6e5}
+      .blek {background: #000}
+      .silv {background: #ccc}
+
     }
   }
 }
@@ -72,6 +88,7 @@ body {
 
 .buttons {
   padding: 10px 15px;
+  border-radius: 8px;
   border: silver solid 1px;
   &:hover {cursor: pointer;}
 }
