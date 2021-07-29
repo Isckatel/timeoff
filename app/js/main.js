@@ -5,7 +5,9 @@ let timeBreak = 0;
 let audio = document.getElementsByTagName("audio")[0];
 var myWorker = new Worker("js/worker.js");
 myWorker.addEventListener('error', onError, false);
-countErr=0;
+let countErr=0;
+let countJob=0;
+let countBreak=0;
 let numTimer = 1;//номер таймера 1-работа 2-отдых
 let stop = false;
 let sentstop = false;
@@ -21,6 +23,7 @@ $("#button").on("click",function(){
     $('#type').html('Работа');
     $("#pause").css("display","inline-block");
     $("#reload").css("display","inline-block");
+    $("#button").css("display","none");
     console.log('Строкой выше запустили воркер');
   } else {
     alert('Вашем браузере не поддерживается работа Веб-воркеров. Работа приложения не возможна.');
@@ -48,11 +51,19 @@ $("#reload").on("click",function(){
   window.location.reload();
 });
 
+//Событие ответа от воркера
 myWorker.onmessage = function(e) {
   console.log('Ответ от воркера: ' + e.data[0]);
   if (e.data[0] == 'end') {
     $('#timer').html('0:00');
+    if (numTimer==1) countJob++; else countErr++;
     audio.play();
+    //let count = numTimer==1?countJob:countErr;
+    let str = numTimer==1?"Работа ":"Отдых ";
+    $('#countPeriod').append("<br>" + (numTimer==1?countJob:countErr) + ". "
+      + (numTimer==1?"Работа ":"Отдых ")
+      + new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds()
+    );
     if (numTimer == 1) {
       console.log('Нужен новый воркер отдыха');
       myWorker.postMessage([timeBreak]);
@@ -74,10 +85,12 @@ myWorker.onmessage = function(e) {
   }
 }
 
+//Удаление воркера
 $("#delete").on("click",function(){
   myWorker.terminate();
 });
 
+//Обработка ошибки воркера
 function onError(e) {
   console.log('Строка: ' + e.lineno);
   console.log('В: ' + e.filename);

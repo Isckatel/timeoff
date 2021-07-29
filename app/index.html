@@ -7,20 +7,26 @@
     <title>Таймер рабочего времени</title>
   </head>
   <body>
-  <form class="workform">
-    <p class="marginbot5">Интервал работы:</p>
-    <input type="radio" name="timework" value="1" id="timework45">
-    <label for="timework45">45 минут</label>
-    <input type="radio" name="timework" value="50" id="timework50">
-    <label for="timework50">50 минут</label>
-    <input type="radio" name="timework" value="60" id="timework60" checked>
-    <label for="timework60">60 минут</label>
-    <p class="margintop10">Интервал отдыха:</p>
-    <input type="radio" name="timebreak" value="1" id="timebreak10">
-    <label for="timebreak10">10 минут</label>
-    <input type="radio" name="timebreak" value="15" id="timebreak15" checked>
-    <label for="timebreak15">15 минут</label>
-  </form>
+  <div class="mainbox">
+    <form class="workform">
+      <p class="marginbot5">Интервал работы:</p>
+      <input type="radio" name="timework" value="1" id="timework45">
+      <label for="timework45">45 минут</label>
+      <input type="radio" name="timework" value="50" id="timework50">
+      <label for="timework50">50 минут</label>
+      <input type="radio" name="timework" value="60" id="timework60" checked>
+      <label for="timework60">60 минут</label>
+      <p class="margintop10">Интервал отдыха:</p>
+      <input type="radio" name="timebreak" value="1" id="timebreak10">
+      <label for="timebreak10">10 минут</label>
+      <input type="radio" name="timebreak" value="15" id="timebreak15" checked>
+      <label for="timebreak15">15 минут</label>
+    </form>
+    <div id="countPeriod">
+      Количество периодов:
+    </div>
+  </div>
+
   <div class="butbox">
     <button id="button" class="buttons">Запуск</button>
     <button id="pause" class="buttons">Пауза</button>
