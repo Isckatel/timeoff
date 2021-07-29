@@ -7,8 +7,21 @@
     <title>Таймер рабочего времени</title>
   </head>
   <body>
+    <div class="themeBox">
+      <div class="theme">
+        <a id="fiol" type="button">
+          Розовый
+        </a>
+        <a id="bk" type="button">
+          Черный
+        </a>
+        <a id="sil" type="button">
+          Серый
+        </a>
+      </div>
+    </div>
   <div class="mainbox">
-    <form class="workform">
+    <form class="workform backMainColor">
       <p class="marginbot5">Интервал работы:</p>
       <input type="radio" name="timework" value="1" id="timework45">
       <label for="timework45">45 минут</label>
@@ -22,7 +35,7 @@
       <input type="radio" name="timebreak" value="15" id="timebreak15" checked>
       <label for="timebreak15">15 минут</label>
     </form>
-    <div id="countPeriod">
+    <div id="countPeriod" class="backMainColor">
       Количество периодов:
     </div>
   </div>
@@ -39,7 +52,7 @@
     <div id="type"></div>
   </div>
   <div class="info">
-    <details>
+    <details class="backMainColor">
     <summary><i>Приложение 7 к САНПИН 2.2.2/2.4.1340-03. Предложения по организации работы с ПЭВМ</i></summary>
     <p>1.4. В случаях, когда характер работы требует постоянного взаимодействия с ВДТ (набор текстов или ввод данных и т.п.) с напряжением внимания и сосредоточенности, при исключении возможности периодического переключения на другие виды трудовой деятельности, не связанные с ПЭВМ, рекомендуется организация перерывов на 10 - 15 мин через каждые 45 - 60 мин работы.</p>
     </details>
@@ -50,5 +63,6 @@
   </audio>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/theme.js"></script>
   </body>
 </html>

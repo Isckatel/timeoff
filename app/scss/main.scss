@@ -14,6 +14,23 @@ body {
   background: #f7f7f7;
 }
 
+.themeBox{
+  background: #dcdcdc;
+  border-radius: 0 0 10px 10px;
+  border: 1px solid silver;
+  .theme{
+    width: 720px;
+    margin: 0 auto;
+    padding: 8px 0;
+
+    a {
+      cursor: pointer;
+      &:not(:first-child){
+        margin-left: 20px;
+      }
+    }
+  }
+}
 .mainbox {
   width: 720px;
   margin: 20px auto;
@@ -22,16 +39,22 @@ body {
   align-items: flex-start;
   .workform {
     flex-basis: 300px;
+    height: 95px;
+    padding: 7px;
+    box-shadow: inset 0 0 6px rgba(154, 147, 140, 0.5);
+
     label {margin-right: 10px}
     .marginbot5 {margin-bottom: 5px}
     .margintop10 {margin: 10px 0 5px}
+    background: #f7f7f7;
   }
   #countPeriod {
     flex-basis: 300px;
-    height: 85px;
+    height: 95px;
     box-shadow: inset 0 0 6px rgba(154, 147, 140, 0.5);
     overflow-y: auto;
-    padding: 5px;
+    padding: 7px;
+    background: #f7f7f7;
   }
 }
 
@@ -89,4 +112,10 @@ body {
     margin-right: 10px;
     font-size: 46px;
   }
+}
+
+details {
+  padding: 7px;
+  background: #f7f7f7;
+  box-shadow: inset 0 0 6px rgba(154, 147, 140, 0.5);
 }
