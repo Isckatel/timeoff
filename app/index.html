@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" lang="ru" content="Егошин Иван">
     <link rel="stylesheet" href="css/main.css">
     <title>Таймер рабочего времени</title>
   </head>
   <body>
+    <div class="wrapper">
     <div class="themeBox">
       <div class="theme">
         Темы:
@@ -28,12 +30,14 @@
     <form class="workform backMainColor">
       <p class="marginbot5">Интервал работы:</p>
       <input type="radio" name="timework" value="1" id="timework45">
-      <label for="timework45">45 минут</label>
+      <label for="timework45">1 минута</label>
       <input type="radio" name="timework" value="50" id="timework50">
       <label for="timework50">50 минут</label>
       <input type="radio" name="timework" value="60" id="timework60" checked>
       <label for="timework60">60 минут</label>
       <p class="margintop10">Интервал отдыха:</p>
+      <input type="radio" name="timebreak" value="1" id="timebreak1">
+      <label for="timebreak1">1 минута</label>
       <input type="radio" name="timebreak" value="1" id="timebreak10">
       <label for="timebreak10">10 минут</label>
       <input type="radio" name="timebreak" value="15" id="timebreak15" checked>
@@ -49,7 +53,10 @@
     <button id="pause" class="buttons">Пауза</button>
     <button id="continue" class="buttons">Продолжить</button>
     <button id="reload" class="buttons">Перезагрузить</button>
-    <button id="delete" class="buttons">Удалить воркер</button>
+    <!--<button id="delete" class="buttons">Удалить воркер</button>-->
+  </div>
+  <div class="info">
+    <p>По окончанию времени прозвучит звуковой сигнал.</p>
   </div>
   <div id="timerbox">
     <div id="timer"> </div>
@@ -60,6 +67,12 @@
     <summary><i>Приложение 7 к САНПИН 2.2.2/2.4.1340-03. Предложения по организации работы с ПЭВМ</i></summary>
     <p>1.4. В случаях, когда характер работы требует постоянного взаимодействия с ВДТ (набор текстов или ввод данных и т.п.) с напряжением внимания и сосредоточенности, при исключении возможности периодического переключения на другие виды трудовой деятельности, не связанные с ПЭВМ, рекомендуется организация перерывов на 10 - 15 мин через каждые 45 - 60 мин работы.</p>
     </details>
+  </div>
+  <div class="boxFooter">
+    <div class="footer">
+      <p class="pfooter">Таймер рабочего времени. v.0.3.0. Автор: Егошин Иван &copy; Все права защищены</p>
+    </div>
+  </div>
   </div>
   <audio preload="auto">
     <source src="mp3/dzin.mp3" type="audio/mpeg">

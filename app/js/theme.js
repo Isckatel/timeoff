@@ -7,6 +7,7 @@ $("#fiol").on("click",function(){
   $('.themeBox').css({'background':'#ffc6e5', 'border':'1px solid #ff5faf'});
   $('#timerbox').css({'background':'#ff5faf','box-shadow': 'inset 2px 2px 5px rgba(255, 95, 175, 0.5), 1px 1px 5px rgba(255, 255, 255, 1)'});
   $('.buttons').css({'background':'#ffc6e5', 'border':'1px solid #ff5faf',"color":"#000"});
+  $('.footer').css({'background':'#ffc6e5', 'border':'1px solid #ff5faf'});
 });
 
 $("#sil").on("click",function(){
@@ -15,6 +16,7 @@ $("#sil").on("click",function(){
   $('.themeBox').css({'background':'', 'border':''});
   $('#timerbox').css({'background':'','box-shadow': 'inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1)'});
   $('.buttons').css({'background':'', 'border':'','color':'#000'});
+  $('.footer').css({'background':'', 'border':''});
 });
 
 $("#bk").on("click",function(){
@@ -25,4 +27,5 @@ $("#bk").on("click",function(){
   $('.themeBox').css({'background':'#333333', 'border':'1px solid #666666'});
   $('#timerbox').css({'background':'#000','box-shadow': 'inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1)'});
   $('.buttons').css({'background':'#191919', 'border':'1px solid #b2b2b2', 'color':'#e5e5e5'});
+  $('.footer').css({'background':'#333333', 'border':'1px solid #666666'});
 });

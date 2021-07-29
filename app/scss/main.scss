@@ -14,6 +14,12 @@ body {
   background: #f7f7f7;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .themeBox{
   background: #dcdcdc;
   border-radius: 0 0 10px 10px;
@@ -135,4 +141,22 @@ details {
   padding: 7px;
   background: #f7f7f7;
   box-shadow: inset 0 0 6px rgba(154, 147, 140, 0.5);
+}
+
+.boxFooter {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;  
+  .footer {
+    background: #dcdcdc;
+    height: 50px;
+    border-radius: 10px 10px 0 0;
+    .pfooter {
+      //display: block;
+      text-align: right;
+      width: 720px;
+      margin: 20px auto;
+    }
+  }
 }
